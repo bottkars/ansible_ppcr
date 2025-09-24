@@ -6,7 +6,7 @@
     headers:
       X-CR-AUTH-TOKEN: "{{ auth_token }}"
     status_code: 200
-  validate_certs: "{{ validate_certs }}"
+    validate_certs: "{{ validate_certs }}"
   register: storage_response
 
 - name: Create a new storage endpoint
@@ -20,3 +20,5 @@
       Content-Type: "application/json"
       X-CR-AUTH-TOKEN: "{{ auth_token }}"
     status_code: 201
+    validate_certs: "{{ validate_certs }}"
+  register: create_storage_response     
