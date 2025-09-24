@@ -32,5 +32,5 @@
         name: storage
         vars:
           auth_token: "{{ auth_token }}"
-        tasks_from: get  
+      tasks_from: get  
       tags: get_storage
