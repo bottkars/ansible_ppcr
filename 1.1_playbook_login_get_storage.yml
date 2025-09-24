@@ -9,7 +9,7 @@
       password: "Ithaca2022!"
 #      securitycode: "123456"  # Optional if MFA is disabled
 
-    new_storage:
+    my_storage:
       nickname: "MyVaultDD"
       hostinfo:
         hostname: "vault-dd.demo.local"
@@ -30,4 +30,7 @@
     - name: Run only the get_storage task from storage role
       import_role:
         name: storage
+        vars:
+          auth_token: "{{ auth_token }}"
+        tasks_from: get  
       tags: get_storage

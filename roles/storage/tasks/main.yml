@@ -1,24 +1,2 @@
-- name: Get all storage endpoints
-  tags: get_storage
-  uri:
-    url: "{{ api_base_url }}/v8/storage"
-    method: GET
-    headers:
-      X-CR-AUTH-TOKEN: "{{ auth_token }}"
-    status_code: 200
-    validate_certs: "{{ validate_certs }}"
-  register: storage_response
 
-- name: Create a new storage endpoint
-  tags: create_storage
-  uri:
-    url: "{{ api_base_url }}/v8/storage"
-    method: POST
-    body_format: json
-    body: "{{ new_storage }}"
-    headers:
-      Content-Type: "application/json"
-      X-CR-AUTH-TOKEN: "{{ auth_token }}"
-    status_code: 201
-    validate_certs: "{{ validate_certs }}"
-  register: create_storage_response     
+
