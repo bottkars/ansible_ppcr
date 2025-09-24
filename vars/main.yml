@@ -1,7 +1,7 @@
 api_base_url: "https://cr.demo.local:14778/cr"
 my_login_payload:
   username: "cradmin"
-  password: "Ithaca2022!"
+  password: "Password123!"
 #      securitycode: "123456"  # Optional if MFA is disabled
 
 my_new_storage:
