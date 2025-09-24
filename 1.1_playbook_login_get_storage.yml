@@ -27,10 +27,10 @@
       set_fact:
         auth_token: "{{ login_response.json.accessToken }}"
 
-
-    - import_role:
+    - name: Run only the get_storage task from storage role
+      ansible.builtin.include_role:
         name: storage
         vars:
           auth_token: "{{ auth_token }}"
-      tasks_from: get  
+        tasks_from: get  
       tags: get_storage
