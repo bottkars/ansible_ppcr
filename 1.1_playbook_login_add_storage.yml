@@ -22,3 +22,6 @@
       vars:
         new_storage: "{{ my_new_storage }}"
 
+    - name: Show create storage response
+      debug:
+        msg: create_storage_response.json
