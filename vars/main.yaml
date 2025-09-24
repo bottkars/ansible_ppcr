@@ -1,0 +1,13 @@
+api_base_url: "https://cr.demo.local:14778/cr"
+my_login_payload:
+  username: "cradmin"
+  password: "Ithaca2022!"
+#      securitycode: "123456"  # Optional if MFA is disabled
+
+my_new_storage:
+  nickname: "MyVaultDD"
+  hostinfo:
+    hostname: "vault-dd.demo.local"
+    hostUsername: "sysadmin"
+    hostPassword: "Password123!"
+    sshPort: 22
