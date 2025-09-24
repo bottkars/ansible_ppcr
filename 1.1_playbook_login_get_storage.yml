@@ -21,7 +21,8 @@
     - name: Include login role
       include_role:
         name: login
-
+      vars:
+        login_payload: "{{ login_payload }}"
     - name: Set access token from login response
       set_fact:
         auth_token: "{{ login_response.json.accessToken }}"
