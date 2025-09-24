@@ -1,0 +1,14 @@
+- name: Login to Cyber Recovery and get token
+  uri:
+    url: "{{ api_base_url }}/v8/login"
+    method: POST
+    body_format: json
+    body: "{{ login_payload }}"
+    headers:
+      Content-Type: "application/json"
+    status_code: 200
+  register: login_response
+
+- name: Show access token
+  debug:
+    msg: "Access token: {{ login_response.json.accessToken }}"

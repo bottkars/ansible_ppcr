@@ -1,0 +1,6 @@
+auth_token: "your-access-token"
+new_user:
+  username: "jsmith"
+  password: "securepass"
+  email: "jsmith@example.com"
+  role: "admin"
