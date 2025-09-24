@@ -24,4 +24,4 @@
 
     - name: Show create storage response
       debug:
-        msg: create_storage_response.json
+        msg: "{{ create_storage_response.json }}"
