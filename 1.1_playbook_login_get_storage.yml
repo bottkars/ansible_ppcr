@@ -28,9 +28,9 @@
         auth_token: "{{ login_response.json.accessToken }}"
 
     - name: Run only the get_storage task from storage role
-      ansible.builtin.include_role:
+      include_role:
         name: storage
-        vars:
-          auth_token: "{{ auth_token }}"
         tasks_from: get  
-      tags: get_storage
+        tags: get_storage
+      vars:
+        auth_token: "{{ auth_token }}"
