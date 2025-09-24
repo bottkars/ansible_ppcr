@@ -31,5 +31,3 @@
       include_role:
         name: storage
         tasks_from: get  
-      vars:
-        auth_token: "{{ auth_token }}"
