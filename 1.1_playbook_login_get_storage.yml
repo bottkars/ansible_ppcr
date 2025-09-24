@@ -1,0 +1,32 @@
+---
+- name: Login and create storage in Cyber Recovery
+  hosts: localhost
+  gather_facts: no
+  vars:
+    api_base_url: "https://cr.demo.local"
+    login_payload:
+      username: "cradmin"
+      password: "Ithaca2022!"
+#      securitycode: "123456"  # Optional if MFA is disabled
+
+    new_storage:
+      nickname: "MyVaultDD"
+      hostinfo:
+        hostname: "vault-dd.demo.local"
+        hostUsername: "sysadmin"
+        hostPassword: "Password123!"
+        sshPort: 22
+
+  tasks:
+    - name: Include login role
+      include_role:
+        name: login
+
+    - name: Set access token from login response
+      set_fact:
+        auth_token: "{{ login_response.json.accessToken }}"
+
+    - name: Run only the create_storage task from storage role
+      import_role:
+        name: storage
+      tags: create_storage
