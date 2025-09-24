@@ -26,7 +26,7 @@
       set_fact:
         auth_token: "{{ login_response.json.accessToken }}"
 
-    - name: Run only the create_storage task from storage role
+    - name: Run only the get_storage task from storage role
       import_role:
         name: storage
-      tags: create_storage
+      tags: get_storage
