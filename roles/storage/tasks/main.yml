@@ -1,4 +1,5 @@
 - name: Get all storage endpoints
+  tags: get_storage
   uri:
     url: "{{ api_base_url }}/v8/storage"
     method: GET
@@ -8,6 +9,7 @@
   register: storage_response
 
 - name: Create a new storage endpoint
+  tags: create_storage
   uri:
     url: "{{ api_base_url }}/v8/storage"
     method: POST
