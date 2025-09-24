@@ -7,7 +7,7 @@ my_login_payload:
 my_new_storage:
   nickname: "MyVaultDD"
   hostinfo:
-    hostname: "vault-dd.demo.local"
+    hostname: "vault-ddve.demo.local"
     hostUsername: "cradmin"
     hostPassword: "Password123!"
     sshPort: 22
