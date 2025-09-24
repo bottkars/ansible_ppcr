@@ -3,7 +3,7 @@
   hosts: localhost
   gather_facts: no
   vars:
-    api_base_url: "https://cr.demo.local"
+    api_base_url: "https://cr.demo.local:14780"
     login_payload:
       username: "cradmin"
       password: "Ithaca2022!"
