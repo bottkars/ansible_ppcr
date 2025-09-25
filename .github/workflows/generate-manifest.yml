@@ -7,6 +7,9 @@ on:
       - ".github/scripts/generate_manifest.py"
   workflow_dispatch:
 
+permissions:
+  contents: write  # ✅ Required to allow pushing with GITHUB_TOKEN
+
 jobs:
   generate-manifest:
     runs-on: ubuntu-latest
@@ -28,10 +31,12 @@ jobs:
 
       - name: Commit and push manifest
         env:
-          GH_PAT: ${{ secrets.GH_PAT }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git config --global user.name "Karsten Bott"
           git config --global user.email "karsten.bott@bottnet.de"
-          git remote set-url origin "https://x-access-token:${GH_PAT}@github.com/${{ github.repository }}"
           git add ansible_roles_manifest.json
-          git diff --cached --quiet || (git commit -m "Update roles manifest [auto]" && git push)
+          git diff --cached --quiet || (
+            git commit -m "Update roles manifest [auto]" &&
+            git push "https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}"
+          )
