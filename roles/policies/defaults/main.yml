@@ -1,0 +1,2 @@
+api_base_url: "https://your-cr-host:14778/cr"
+validate_certs: false
