@@ -8,7 +8,7 @@
   tasks:
     - name: Include login role
       include_role:
-        name: login
+        name: authentication
       vars:
         login_payload: "{{ my_login_payload }}" 
     - name: Set access token from login response

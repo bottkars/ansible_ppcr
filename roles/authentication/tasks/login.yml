@@ -13,3 +13,4 @@
 - name: Show access token
   debug:
     msg: "Access token: {{ login_response.json.accessToken }}"
+    verbosity: 0

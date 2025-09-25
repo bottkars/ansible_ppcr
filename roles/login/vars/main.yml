@@ -1,5 +1,0 @@
-login_payload:
-  username: "admin"
-  password: "your_password"
-  securitycode: "123456"
-apiver: v8  

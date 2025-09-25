@@ -7,7 +7,7 @@
   tasks:
     - name: Include login role
       include_role:
-        name: login
+        name: authentication
       vars:
         login_payload: "{{ my_login_payload }}"      
 
