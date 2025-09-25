@@ -22,6 +22,6 @@
         tasks_from: get_mtree
 
     - ansible.builtin.debug:
-        msg: "{{ storagemtree_response | json_query('json.items[*].') }}"
+        msg: "{{ storagemtree_response | json_query('json.items[*]') }}"
         verbosity: 0 
                 
