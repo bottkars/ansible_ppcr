@@ -1,0 +1,33 @@
+name: Generate README and Galaxy Docs
+
+on:
+  push:
+    paths:
+      - ansible_roles_manifest.json
+  workflow_dispatch:
+
+jobs:
+  generate-docs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Generate documentation files
+        run: python generate_docs.py
+
+      - name: Commit and push documentation
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add README.md LICENSE GALAXY_DOCUMENTATION_TEMPLATE.md
+          git commit -m "Auto-update README and Galaxy docs"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
