@@ -22,32 +22,19 @@
     "name": "authentication",
     "description": "",
     "tasks": [
-      "Login to Cyber Recovery",
-      "Logout user"
-    ],
-    "defaults": [
-      "api_base_url"
-    ],
-    "vars": [
-      "login_payload",
-      "user_id",
-      "refresh_token",
-      "apiver"
-    ]
-  },
-  {
-    "name": "login",
-    "description": "",
-    "tasks": [
+      "Logout user",
       "Login to Cyber Recovery and get token",
       "Show access token"
     ],
     "defaults": [
       "api_base_url",
+      "apiver",
       "validate_certs"
     ],
     "vars": [
       "login_payload",
+      "user_id",
+      "refresh_token",
       "apiver"
     ]
   },
