@@ -1,0 +1,26 @@
+---
+- name: Login and create storage in Cyber Recovery
+  hosts: localhost
+  gather_facts: no
+  vars_files:
+    - ./vars/main.yml
+
+  tasks:
+    - name: Include login role
+      include_role:
+        name: login
+      vars:
+        login_payload: "{{ my_login_payload }}" 
+    - name: Set access token from login response
+      set_fact:
+        auth_token: "{{ login_response.json.accessToken }}"
+
+    - name: Run only the get_storage task from storage role
+      include_role:
+        name: storage
+        tasks_from: getmtree
+
+    - ansible.builtin.debug:
+        msg: "{{ storagemtree_response }}"
+        verbosity: 1  
+                

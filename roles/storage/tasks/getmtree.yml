@@ -1,0 +1,10 @@
+- name: Get all storage endpoints mtrees
+  tags: get_storagemtree
+  uri:
+    url: "{{ api_base_url }}/{{ apiver }}/storage/tree"
+    method: GET
+    headers:
+      X-CR-AUTH-TOKEN: "{{ auth_token }}"
+    status_code: 200
+    validate_certs: "{{ validate_certs }}"
+  register: storagemtree_response
