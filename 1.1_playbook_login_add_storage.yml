@@ -8,7 +8,7 @@
     - name: Include login role
       import_role:
         name: authentication
-        task_from: login
+        tasks_from: login
       vars:
         login_payload: "{{ my_login_payload }}"      
 
