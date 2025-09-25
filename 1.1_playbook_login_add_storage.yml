@@ -6,8 +6,9 @@
     - ./vars/main.yml
   tasks:
     - name: Include login role
-      include_role:
+      import_role:
         name: authentication
+        task_from: login
       vars:
         login_payload: "{{ my_login_payload }}"      
 

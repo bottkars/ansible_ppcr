@@ -1,6 +1,6 @@
 import os
 import json
-import yaml
+import yaml # type: ignore
 from datetime import datetime
 
 def extract_description(role_path):
