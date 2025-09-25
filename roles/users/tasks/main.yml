@@ -1,6 +1,6 @@
 - name: Get all users
   uri:
-    url: "{{ api_base_url }}/v8/users"
+    url: "{{ api_base_url }}/{{ apiver }}/users"
     method: GET
     headers:
       X-CR-AUTH-TOKEN: "{{ auth_token }}"
@@ -10,7 +10,7 @@
 
 - name: Create a new user
   uri:
-    url: "{{ api_base_url }}/v8/users"
+    url: "{{ api_base_url }}/{{ apiver }}/users"
     method: POST
     body_format: json
     body: "{{ new_user }}"

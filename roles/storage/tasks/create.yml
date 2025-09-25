@@ -1,7 +1,7 @@
 - name: Create a new storage endpoint
   tags: create_storage
   uri:
-    url: "{{ api_base_url }}/v8/storage"
+    url: "{{ api_base_url }}/{{ apiver }}/storage"
     method: POST
     body_format: json
     body: "{{ new_storage }}"

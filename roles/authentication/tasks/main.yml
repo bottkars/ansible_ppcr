@@ -1,6 +1,6 @@
 - name: Login to Cyber Recovery
   uri:
-    url: "{{ api_base_url }}/v8/login"
+    url: "{{ api_base_url }}/{{ apiver }}/login"
     method: POST
     body_format: json
     body: "{{ login_payload }}"
@@ -11,7 +11,7 @@
 
 - name: Logout user
   uri:
-    url: "{{ api_base_url }}/v8/logout/{{ user_id }}"
+    url: "{{ api_base_url }}/{{ apiver }}/logout/{{ user_id }}"
     method: POST
     headers:
       X-CR-REFRESH-TOKEN: "{{ refresh_token }}"

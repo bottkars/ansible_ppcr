@@ -11,3 +11,4 @@ my_new_storage:
     hostUsername: "cradmin"
     hostPassword: "Password123!"
     sshPort: 22
+apiver: v8  

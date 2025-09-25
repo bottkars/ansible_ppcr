@@ -18,4 +18,9 @@
     - name: Run only the get_storage task from storage role
       include_role:
         name: storage
-        tasks_from: get  
+        tasks_from: getminimal
+
+    - ansible.builtin.debug:
+        msg: "{{ storageminimal_response }}"
+      verbosity: 0  
+                

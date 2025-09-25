@@ -5,3 +5,4 @@ new_storage:
     hostname: "dd1.dell.com"
     hostUsername: "cradmin"
     sshPort: 22
+apiver: v8  

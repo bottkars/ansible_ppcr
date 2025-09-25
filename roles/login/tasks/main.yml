@@ -1,6 +1,6 @@
 - name: Login to Cyber Recovery and get token
   uri:
-    url: "{{ api_base_url }}/v8/login"
+    url: "{{ api_base_url }}/{{ apiver }}/login"
     method: POST
     body_format: json
     body: "{{ login_payload }}"
