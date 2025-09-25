@@ -12,3 +12,25 @@ my_new_storage:
     hostPassword: "Password123!"
     sshPort: 22
 apiver: v8  
+
+my_new_policy:
+  policyName: "nw2"
+  replType: "DD"
+  jobWindow: 6
+  retLockType: "governance"
+  retLockMin: "2d"
+  retLockMax: "40d"
+  retLockDuration: "7d"
+  assetDetails:
+    - mgmtddid: ''
+      mgmtddReplCtxName: "mtree://{{ my_new_storage.hostinfo.hostname }}/data/col1/SysDr_ppdm-1_repl"
+      mgmtddReplEthInterface: "ethV1"
+      contentType: "data"
+      status: "normal"
+      rlmode: "none"
+      rlstatus: "disabled"
+      checked: true
+  tags:
+    - "PowerProtect"
+    - "finance"
+    - "CRM"
