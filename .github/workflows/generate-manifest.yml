@@ -25,11 +25,13 @@ jobs:
 
       - name: Run manifest generator
         run: python .github/scripts/generate_manifest.py
-      - name: Commit manifest
+
+      - name: Commit and push manifest
+        env:
+          GH_PAT: ${{ secrets.GH_PAT }}
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "github-actions@github.com"
+          git remote set-url origin https://x-access-token:${GH_PAT}@github.com/${{ github.repository }}
           git add ansible_roles_manifest.json
-          git commit -m "Update roles manifest [auto]"
-          git push
-        continue-on-error: true
+          git diff --cached --quiet || (git commit -m "Update roles manifest [auto]" && git push)
