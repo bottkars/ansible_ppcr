@@ -22,5 +22,5 @@
 
     - ansible.builtin.debug:
         msg: "{{ storageminimal_response }}"
-      verbosity: 0  
+        verbosity: 1  
                 
