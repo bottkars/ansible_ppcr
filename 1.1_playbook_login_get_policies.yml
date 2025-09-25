@@ -22,5 +22,5 @@
         tasks_from: get
     - ansible.builtin.debug:
         msg: "{{ policies_response | json_query('json.items[*]') }}"
-        verbosity: 0 
+        verbosity: 1 
                 
