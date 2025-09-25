@@ -23,5 +23,5 @@
 
     - ansible.builtin.debug:
         msg: "{{ storagemtree_response.json.items }}"
-        verbosity: 1  
+        verbosity: 0 
                 
