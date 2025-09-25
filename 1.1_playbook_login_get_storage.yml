@@ -22,6 +22,6 @@
         tasks_from: get_minimal
 
     - ansible.builtin.debug:
-        msg: "{{ storageminimal_response }}"
+        msg: "{{ storageminimal_response  | json_query('json.items[*]') }}"
         verbosity: 1  
                 
