@@ -1,0 +1,27 @@
+---
+- name: Login and gez policies in Cyber Recovery
+  hosts: localhost
+  gather_facts: no
+  vars_files:
+    - ./vars/main.yml
+
+  tasks:
+    - name: Include login role
+      import_role:
+        name: authentication
+        tasks_from: login
+      vars:
+        login_payload: "{{ my_login_payload }}" 
+    - name: Set access token from login response
+      set_fact:
+        auth_token: "{{ login_response.json.accessToken }}"
+
+    - name: Run only the get_policies task from policies role
+      include_role:
+        name: policies
+        tasks_from: get_policies
+
+    - ansible.builtin.debug:
+        msg: "{{ policies_response | json_query('json.items[*]') }}"
+        verbosity: 0 
+                
