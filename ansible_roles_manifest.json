@@ -1,5 +1,18 @@
 [
   {
+    "name": "policies",
+    "description": "",
+    "tasks": [
+      "Get all CR policies",
+      "Create a new CR policiy"
+    ],
+    "defaults": [
+      "api_base_url",
+      "validate_certs"
+    ],
+    "vars": []
+  },
+  {
     "name": "storage",
     "description": "",
     "tasks": [
