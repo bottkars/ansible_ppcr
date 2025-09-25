@@ -2,30 +2,68 @@
   {
     "name": "storage",
     "description": "",
-    "main_tasks": []
+    "tasks": [
+      "Get all storage endpoints",
+      "Get all storage endpoints",
+      "Get all storage endpoints mtrees",
+      "Create a new storage endpoint"
+    ],
+    "defaults": [
+      "api_base_url",
+      "validate_certs"
+    ],
+    "vars": [
+      "auth_token",
+      "new_storage",
+      "apiver"
+    ]
   },
   {
     "name": "authentication",
     "description": "",
-    "main_tasks": [
+    "tasks": [
       "Login to Cyber Recovery",
       "Logout user"
+    ],
+    "defaults": [
+      "api_base_url"
+    ],
+    "vars": [
+      "login_payload",
+      "user_id",
+      "refresh_token",
+      "apiver"
     ]
   },
   {
     "name": "login",
     "description": "",
-    "main_tasks": [
+    "tasks": [
       "Login to Cyber Recovery and get token",
       "Show access token"
+    ],
+    "defaults": [
+      "api_base_url",
+      "validate_certs"
+    ],
+    "vars": [
+      "login_payload",
+      "apiver"
     ]
   },
   {
     "name": "users",
     "description": "",
-    "main_tasks": [
+    "tasks": [
       "Get all users",
       "Create a new user"
+    ],
+    "defaults": [
+      "api_base_url"
+    ],
+    "vars": [
+      "auth_token",
+      "new_user"
     ]
   }
 ]
