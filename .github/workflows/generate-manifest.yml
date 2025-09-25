@@ -1,0 +1,35 @@
+name: Generate Ansible Roles Manifest
+
+on:
+  push:
+    paths:
+      - "roles/**"
+      - ".github/scripts/generate_manifest.py"
+  workflow_dispatch:
+
+jobs:
+  generate-manifest:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install PyYAML
+        run: pip install pyyaml
+
+      - name: Run manifest generator
+        run: python .github/scripts/generate_manifest.py
+      - name: Commit manifest
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git add ansible_roles_manifest.json
+          git commit -m "Update roles manifest [auto]"
+          git push
+        continue-on-error: true
