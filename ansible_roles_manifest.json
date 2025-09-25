@@ -1,7 +1,7 @@
 [
   {
     "name": "storage",
-    "description": "Manage storage endpoints in Cyber Recovery",
+    "description": "",
     "tasks": [
       "Get all storage endpoints",
       "Get all storage endpoints",
