@@ -22,12 +22,16 @@ jobs:
       - name: Generate documentation files
         run: python generate_docs.py
 
-      - name: Commit and push documentation
+      - name: Configure Git
         run: |
-          git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
-          git add README.md LICENSE GALAXY_DOCUMENTATION_TEMPLATE.md
-          git commit -m "Auto-update README and Galaxy docs"
-          git push
+          git config user.name "Karsten Bott (CI)"
+          git config user.email "karsten.bott@users.noreply.github.com"
+
+      - name: Push changes using PAT
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PERSONAL_TOKEN: ${{ secrets.GH_PAT }}
+        run: |
+          git remote set-url origin https://bottkars:${{ secrets.GH_PAT }}@github.com/bottkars/ansible_ppcr.git
+          git add README.md LICENSE GALAXY_DOCUMENTATION_TEMPLATE.md
+          git diff --cached --quiet || git commit -m "Auto-update README and Galaxy docs"
+          git push
