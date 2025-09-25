@@ -30,8 +30,8 @@ jobs:
         env:
           GH_PAT: ${{ secrets.GH_PAT }}
         run: |
-          git config --global user.name "github-actions"
-          git config --global user.email "github-actions@github.com"
+          git config --global user.name "Karsten Bott"
+          git config --global user.email "karsten.bott@bottnet.de"
           git remote set-url origin https://x-access-token:${GH_PAT}@github.com/${{ github.repository }}
           git add ansible_roles_manifest.json
           git diff --cached --quiet || (git commit -m "Update roles manifest [auto]" && git push)
