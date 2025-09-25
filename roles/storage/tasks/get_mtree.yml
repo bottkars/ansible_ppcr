@@ -7,4 +7,4 @@
       X-CR-AUTH-TOKEN: "{{ auth_token }}"
     status_code: 200
     validate_certs: "{{ validate_certs }}"
-  register: storagemtree_response
+  register: get_storagemtree_response
